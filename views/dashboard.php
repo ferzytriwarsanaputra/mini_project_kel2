@@ -11,13 +11,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="<?= base_url('sb-admin-2/') ?>/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<?php
-	$koneksi = mysqli_connect("localhost", "root", "", "rental_mobil");
-	
-	$query = "SELECT * FROM tbl_mobil WHERE id = 13";
-	$result = mysqli_query($koneksi, $query);
-	$data = mysqli_fetch_assoc($result);
-?>
 <body id="page-top">
 	<div id="wrapper">
 		<?php partial('navbar', $aktif) ?>
@@ -27,246 +20,56 @@
 				<h1 class="h3 mb-4 text-gray-800">Dashboard <?= APP_NAME ?></h1>
 				<hr>
 				<div class="row">
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
+					<?php
+						$koneksi = mysqli_connect("localhost", "root", "", "rental_mobil");
+						
+						$query = "SELECT * FROM tbl_mobil";
+						$ambildata = mysqli_query($koneksi, $query);
+						while ($tampil = mysqli_fetch_array($ambildata)){
+							echo "
+							<div class='col-md-4'>
+								<div class='card shadow'>
+									<div class='card-body'>
+										<div class='column'>
+											<div class='col-md-12'>
+												<img src='uploads/$tampil[gambar]' alt='$tampil[nama]' class='img-thumbnail mb-4'>
+											</div>
+											<div class='col-md-12'>
+												<table class='table table-borderless'>
+													<tr>
+														<td>Nama</td>
+														<td>:</td>
+														<td><b>$tampil[nama]</b></td>
+													</tr>
+													<tr>
+														<td>Warna</td>
+														<td>:</td>
+														<td><b>$tampil[warna]</b></td>
+													</tr>
+													<tr>
+														<td>No Polisi</td>
+														<td>:</td>
+														<td><b>$tampil[no_polisi]</b></td>
+													</tr>
+													<tr>
+														<td>Jumlah Kursi</td>
+														<td>:</td>
+														<td><b>$tampil[jumlah_kursi]</b></td>
+													</tr>
+													<tr>
+														<td>Tahun Beli</td>
+														<td>:</td>
+														<td><b>$tampil[tahun_beli]</b></td>
+													</tr>
+												</table>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card shadow">
-							<div class="card-body">
-								<div class="column">
-									<div class="col-md-12">
-										<img src="<?= base_url('uploads/'. $data['gambar']) ?>" alt="<?= $data['nama'] ?>" class="img-thumbnail mb-4">
-									</div>
-									<div class="col-md-12">
-										<table class="table table-borderless">
-											<tr>
-												<td>Nama</td>
-												<td>:</td>
-												<td><b><?= $data['nama'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Warna</td>
-												<td>:</td>
-												<td><b><?= $data['warna'] ?></b></td>
-											</tr>
-											<tr>
-												<td>No Polisi</td>
-												<td>:</td>
-												<td><b><?= $data['no_polisi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Jumlah Kursi</td>
-												<td>:</td>
-												<td><b><?= $data['jumlah_kursi'] ?></b></td>
-											</tr>
-											<tr>
-												<td>Tahun Beli</td>
-												<td>:</td>
-												<td><b><?= $data['tahun_beli'] ?></b></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+							";
+						};
+					?>
 				</div>
 			</div>
 			<?php partial('footer') ?>
