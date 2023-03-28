@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2023 pada 06.01
+-- Waktu pembuatan: 28 Mar 2023 pada 06.31
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.0.25
 
@@ -40,7 +40,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`nik`, `nama_pemilik`, `jeniskelamin`, `Alamat`, `password`) VALUES
-('222', 'asep', 'Laki-laki', 'banjar', '123'),
+('222', 'asep', 'Laki-laki', 'bjb', '123'),
 ('2110131310002', 'Meyda Wikaromah', 'Perempuan', 'Kapuas', '123');
 
 -- --------------------------------------------------------
@@ -65,10 +65,9 @@ CREATE TABLE `kendaraan` (
 
 INSERT INTO `kendaraan` (`id_motor`, `jenis_motor`, `nama_motor`, `muatan`, `harga`, `status_motor`, `nik`) VALUES
 ('SZK', 'Suzuki', 'Ferrari', '4', 500000, 'Tersedia', '6303066106030001'),
-('SZK2', 'Suzuki', 'lamborghini', '2', 1200000, 'Tidak Tersedia', '6303066106030001'),
-('SZK5', 'Suzuki', 'hinop', '6', 3100000, 'Tersedia', '111'),
+('SZK2', 'Suzuki', 'lamborghini', '2', 1200000, 'Tersedia', '6303066106030001'),
 ('YMH', 'Yamaha', 'Avanza', '8', 1000000, 'Tersedia', '6303066106030001'),
-('YMH2', 'yamaha', 'hinop', '2', 120000000, 'Tersedia', '111');
+('YMH10', 'yamaha', 'lamborghini', '2', 10000, 'Tersedia', '111');
 
 -- --------------------------------------------------------
 
@@ -108,9 +107,8 @@ CREATE TABLE `pemilik` (
 --
 
 INSERT INTO `pemilik` (`nik`, `nama_pemilik`, `jeniskelamin`, `Alamat`, `password`) VALUES
-('111', 'agus', 'Perempuan', 'masin', '123'),
-('6303066106030001', 'Khairul Fuad', 'Laki-laki', 'Mandiangin', '123'),
-('999', 'ucp', 'Laki-laki', 'bjb', '123');
+('111', 'agus', 'Laki-laki', 'bjb', '123'),
+('6303066106030001', 'Khairul Fuad', 'Laki-laki', 'Mandiangin', '123');
 
 -- --------------------------------------------------------
 
@@ -132,11 +130,25 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`nik`, `nama_pemilik`, `id_motor`, `id`, `id_pesanan`, `estimasi`) VALUES
-('6303066106030001', 'asep', 'SZK', 'csh', 1, 2),
-('6303066106030001', 'asep', 'YMH', 'csh', 7, 2),
-('111', 'asep', 'YMH2', 'csh', 8, 1),
-('111', 'asep', 'YMH2', 'csh', 9, 1),
-('111', 'asep', 'YMH2', 'csh', 10, 1);
+('111', 'asep', 'YMH10', 'csh', 21, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_admin`
+--
+
+CREATE TABLE `tb_admin` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`username`, `password`) VALUES
+('admin', '999');
 
 --
 -- Indexes for dumped tables
@@ -178,6 +190,12 @@ ALTER TABLE `pesanan`
   ADD KEY `nama_pemilik` (`nama_pemilik`);
 
 --
+-- Indeks untuk tabel `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  ADD PRIMARY KEY (`username`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -185,7 +203,7 @@ ALTER TABLE `pesanan`
 -- AUTO_INCREMENT untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
