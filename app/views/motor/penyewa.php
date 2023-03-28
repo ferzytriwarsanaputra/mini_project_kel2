@@ -19,7 +19,8 @@
                 <p class="card-text">Muatan : <?= $pnw['muatan']; ?></p>
                 <p class="card-text">Harga/Hari : <?= $pnw['harga']; ?></p>
                 <p class="card-text">Status Motor : <?= $pnw['status_motor']; ?></p>
-                <a href="<?= BASEURL; ?>/motor/editmotor/<?= $pnw['nik']; ?>/<?= $pnw['id_motor']; ?>" class="card-link float-end">Detail Motor</a>
+                <a href="<?= BASEURL; ?>/motor/hapusmotor/<?= $pnw['nik']; ?>/<?= $pnw['id_motor']; ?>" class="card-link float-end m-3">Hapus Motor</a>
+                <a href="<?= BASEURL; ?>/motor/editmotor/<?= $pnw['nik']; ?>/<?= $pnw['id_motor']; ?>" class="card-link float-end m-3">Detail Motor</a>
             </div>
             </div>
         <?php endforeach ?>
@@ -59,7 +60,8 @@
             <input type="number" class="form-control" id="harga" placeholder="Harga Sewa" name="harga">
           </div>
           <label for="harga" class="form-label">Status Motor</label>
-          <select class="form-select" aria-label="Default select example" name="status_motor">
+          <input type="hidden" class="form-control" id="status_motor" placeholder="status_motor" name="status_motor" value="Tersedia">
+          <select class="form-select" aria-label="Default select example" name="status_motor" value="Tersedia" disabled>
             <option value="Tersedia">Tersedia</option>
             <option value="Tidak Tersedia">Tidak Tersedia</option>
           </select>

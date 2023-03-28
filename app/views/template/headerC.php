@@ -32,6 +32,7 @@
                 <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/profil/customer/<?= $data['nik']; ?>">Profil</a></button>
                 <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/motor/customer/<?= $data['nik']; ?>">Pesan motor</a></button>
                 <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/motor/pesananmotor/<?= $data['nik']; ?>">Pesanan</a></button>
+                <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/login">Log out</a></button>
             </div>
         </div>
     </div>

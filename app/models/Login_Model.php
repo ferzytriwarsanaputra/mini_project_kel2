@@ -51,4 +51,9 @@ class Login_Model {
         $this->db->query('SELECT * FROM customer');
         return $this->db->resultSet();
     }
+    public function getAllUserAdmin()
+    {
+        $this->db->query('SELECT * FROM tb_admin');
+        return $this->db->resultSet();
+    }
 }

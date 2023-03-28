@@ -21,11 +21,12 @@
     </div>
     <div class="offcanvas-body">
         <div class="btn-group-vertical m-5" role="group" aria-label="Vertical button group">
-            <button type="button" class="btn btn-primary m-3"><a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/home/index/">Home</a></button>
-            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Data Customer</a></button>
-            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Data Provider</a></button>
-            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Data Motor</a></button>
-            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Data Pesanan</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/homeadmin/index">Home</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/datacustomer">Data Customer</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/dataprovider">Data Provider</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/datamotor">Data Motor</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/datapesanan">Data Pesanan</a></button>
+            <button type="button" class="btn btn-primary m-3"><a class="nav-link" href="<?= BASEURL; ?>/login">Log out</a></button>
         </div>
     </div>
 </div>

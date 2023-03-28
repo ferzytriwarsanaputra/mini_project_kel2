@@ -120,9 +120,11 @@ class Motor extends Controller {
     }
     public function pesananmotor($nik)
     {
+        $data['title'] = 'Home Pesanan';
         $data['nik'] = $nik;
+        $pesan['nik'] = $nik;
         $pnw['pesanan'] = $this->model('Penyewa_Model')->getPesanan($nik);
-        // var_dump($pnw);
+        // var_dump($data);
         $nama = $pnw['pesanan']['nama_pemilik'];
         $pesan['pesan'] = $this->model('Penyewa_Model')->inner3($nama);
         // var_dump($pesan);
@@ -130,5 +132,37 @@ class Motor extends Controller {
         $this->view('template/headerC', $data);
         $this->view('motor/pesananmotor', $pesan);
         $this->view('template/footer');
+    }
+    public function batalpesanan($nik,$id,$nama)
+    {
+        if($this->model('Penyewa_Model')->deletePesanan($id) > 0){
+            Flasher::setFlash('Berhasil', 'membatalkan pesanan', 'success');
+            $data['title'] = 'Home Pesanan';
+            $data['nik'] = $nik;
+            $pesan['nik'] = $nik;
+            $pesan['pesan'] = $this->model('Penyewa_Model')->inner3($nama);
+            // var_dump($pesan);
+
+            $this->view('template/headerC', $data);
+            $this->view('motor/pesananmotor', $pesan);
+            $this->view('template/footer');
+        }
+        
+    }
+    public function hapusmotor($nik,$id)
+    {
+        if($this->model('Penyewa_Model')->deleteMotor($id) > 0){
+            Flasher::setFlash('Berhasil', 'hapus motor', 'success');
+            $data['title'] = 'Home Pesanan';
+            $data['nik'] = $nik;
+            $pesan['nik'] = $nik;
+            // $pesan['pesan'] = $this->model('Penyewa_Model')->inner3($nama);
+            $pesan['penyewa'] = $this->model('Penyewa_Model')->getMotorById($nik);
+            // var_dump($pesan);
+
+            $this->view('template/headerP', $data);
+            $this->view('motor/penyewa', $pesan);
+            $this->view('template/footer');
+        }
     }
 }

@@ -1,8 +1,14 @@
 <div class="container">
+<div class="row">
+            <div class="col-lg-6" style="width: 18rem;">
+                <?php Flasher::flash(); ?>
+            </div>
+        </div>
 
     <center>
         <h1>DAFTAR PESANAN</h1>
     </center>
+ 
 
     <table class="table">
         <th>NIK</th>
@@ -16,6 +22,7 @@
         <th>Harga</th>
         <th>Jenis Motor</th>
         <th>Total Harga</th>
+        <th>Aksi</th>
 
         <?php foreach ($data['pesan'] as $pesanan) : ?>
 
@@ -33,6 +40,7 @@
                 <td><?= $pesanan['harga'] ?></td>
                 <td><?= $pesanan['jenis_motor'] ?></td>
                 <td><?= $pesanan['total_harga'] ?></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?= BASEURL; ?>/motor/batalpesanan/<?= $data['nik']; ?>/<?= $pesanan['id_pesanan']; ?>/<?= $pesanan['nama_pemilik']; ?>">Batalkan Pesanan</a></button></td>
 
             </tr>
         <?php endforeach ?>

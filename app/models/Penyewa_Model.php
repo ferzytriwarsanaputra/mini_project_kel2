@@ -205,6 +205,27 @@ class Penyewa_Model {
         return $this->db->resultSet();
 
     }
+    public function deletePesanan($id)
+    {
+        $query = 'DELETE FROM pesanan WHERE id_pesanan = :id_pesanan';
+        $this->db->query($query);
+        $this->db->bind('id_pesanan', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function deleteMotor($id)
+    {
+        $query = 'DELETE FROM kendaraan WHERE id_motor = :id_motor';
+        $this->db->query($query);
+        $this->db->bind('id_motor', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
 
 // SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName

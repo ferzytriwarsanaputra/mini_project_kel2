@@ -14,6 +14,7 @@ class Home extends Controller {
     {
         // var_dump($_POST);
         if( $this->model('Penyewa_Model')->ubahSewaData($_POST) > 0 ){
+            $data['title'] = 'Home';
             $data['nik'] = $_POST['nik'];
             Flasher::setFlash('Berhasil', 'diubah', 'success');
             $this->view('template/headerP', $data);
@@ -23,6 +24,7 @@ class Home extends Controller {
             // header('Location: localhost/phpMVC/public/mahasiswa');
             exit;
         }else{
+            $data['title'] = 'Home';
             $data['nik'] = $_POST['nik'];
             Flasher::setFlash('Gagal', 'diubah', 'danger');
             header('Location: ' . BASEURL . '/home/index/' . $data['nik']);

@@ -25,6 +25,7 @@
         <button type="button" class="btn btn-primary m-5"><a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/home/index/<?= $data['nik']; ?>">Home</a></button>
         <button type="button" class="btn btn-primary m-5"><a class="nav-link" href="<?= BASEURL; ?>/profil/penyewa/<?= $data['nik']; ?>">Profil</a></button>
         <button type="button" class="btn btn-primary m-5"><a class="nav-link" href="<?= BASEURL; ?>/motor/penyewa/<?= $data['nik']; ?>">Motor</a></button>
+        <button type="button" class="btn btn-primary m-5"><a class="nav-link" href="<?= BASEURL; ?>/login">Log out</a></button>
     </div>
     </div>
     </div>

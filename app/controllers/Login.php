@@ -49,7 +49,9 @@ class Login extends Controller {
         $data['title'] = 'Home';
         $user['user'] = $this->model('Login_Model')->getAllUserPenyewa();
         $cs['user'] = $this->model('Login_Model')->getAllUserCustomer();
+        $adm['adm'] = $this->model('Login_Model')->getAllUserAdmin();
         // var_dump($user['user']);
+        foreach($adm['adm'] as $admin){
         foreach($cs['user'] as $cus){
         foreach($user['user'] as $usr){
             if($_POST['nik'] == $usr['nik'] && $_POST['password'] == $usr['password']){
@@ -69,7 +71,7 @@ class Login extends Controller {
                     $this->view('template/footer');
                     exit;
                 }
-            else if($_POST['nik'] == 'admin' && $_POST['password'] == '999'){
+            else if($_POST['nik'] == $admin['username'] && $_POST['password'] == $admin['password']){
                 Flasher::setFlash('Berhasil', 'Login', 'success');
                     // header('Location: ' . BASEURL . '/home');
                     $this->view('template/header', $data);
@@ -77,7 +79,7 @@ class Login extends Controller {
                     $this->view('template/footer');
                     exit;
             }
-        }}Flasher::setFlash('Gagal', 'Login', 'danger');
+        }}}Flasher::setFlash('Gagal', 'Login', 'danger');
         header('Location: ' . BASEURL . '/login');
         exit;
     }
